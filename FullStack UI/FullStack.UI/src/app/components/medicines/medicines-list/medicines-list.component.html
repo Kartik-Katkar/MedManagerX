@@ -1,0 +1,31 @@
+<div class="container my-5">
+<h1 class="mb-3">Medicines</h1>
+<table class="table" *ngIf="medicines && medicines.length > 0">
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Cost</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+
+    <tr *ngFor="let medicine of medicines">
+        <td>{{medicine.id}}</td>
+        <td>{{medicine.name}}</td>
+        <td>{{medicine.email}}</td>
+        <td>{{medicine.phone}}</td>
+        <td>{{medicine.cost}}</td>
+        <td>{{medicine.type}}</td>
+        <td><a [routerLink]="['/medicines','edit',medicine.id]">View</a></td>
+        
+    </tr>
+
+</tbody>
+</table>
+<p *ngIf="!medicines || medicines.length <= 0">No Medicines Found</p>
+</div>
