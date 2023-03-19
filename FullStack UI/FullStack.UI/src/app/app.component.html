@@ -1,7 +1,16 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- 
+<nav class="navbar navbar-light navbar navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container">
-    <a class="navbar-brand" href="#">Medcare</a>
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+        height="20"
+        alt="MDB Logo"
+        loading="lazy"
+      />
+    </a>
+    <a class="navbar-brand">MedmanagerX</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,8 +26,56 @@
         </li>
         
       </ul>
+      
+    </div>
+    <div class="d-flex align-items-center">
+      <a
+        class="btn btn-primary me-3"
+        href="https://github.com/Kartik-Katkar"
+        role="button"
+        ><img src="../assets/linkedin.png"></a>
+      <a
+        class="btn btn-dark px-3"
+        href="https://github.com/Kartik-Katkar"
+        role="button"
+        ><img src="../assets/Github.png"></a>
     </div>
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="background-color: #ADD8E6;">
+
+    <div class="container">
+      <a class="navbar-brand me-auto">
+        <img src="../assets/logo1.png" height="80" width="40" alt="Logo" loading="lazy" />
+        <span class="ms-2">MedmanagerX</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="medicines" routerLinkActive="active">Medicines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="medicines/add" routerLinkActive="active">Add Medicines</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <a class="btn btn-primary me-3" href="https://www.linkedin.com/in/kartik-katkar" target="_blank" role="button">
+          <img src="../assets/linkedin.png" alt="LinkedIn Icon">
+        </a>
+        <a class="btn btn-dark px-3" href="https://github.com/Kartik-Katkar" target="_blank" role="button">
+          <img src="../assets/Github.png" alt="GitHub Icon">
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

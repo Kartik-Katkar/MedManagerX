@@ -1,15 +1,61 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>FullStackUI</title>
+  <title>MedmanagerX</title>
   <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image" href="./assets/logo1.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
   <app-root></app-root>
 </body>
+</html> -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MedmanagerX</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image" href="./assets/logo1.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div id="video-background">
+    <video autoplay muted loop playsinline poster="./assets/fallback.png" data-src="./assets/background.mp4">
+      <source src="./assets/background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div id="content">
+    <app-root></app-root>
+  </div>
+  <script>
+    var video = document.querySelector('#video-background video');
+    video.addEventListener('loadedmetadata', function() {
+      video.play();
+    });
+  
+    if ('IntersectionObserver' in window) {
+      var lazyVideo = document.querySelector('#video-background video[data-src]');
+      var observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            lazyVideo.src = lazyVideo.dataset.src;
+            observer.unobserve(lazyVideo);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(lazyVideo);
+    } else {
+      lazyVideo.src = lazyVideo.dataset.src;
+    }
+  </script>
+</body>
 </html>
+
